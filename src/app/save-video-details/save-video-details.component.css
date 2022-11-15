@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.save-video-detail {
+  margin-top: 15px;
+}
+
