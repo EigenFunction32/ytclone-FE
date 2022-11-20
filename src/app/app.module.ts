@@ -25,6 +25,14 @@ import {VgBufferingModule} from "@videogular/ngx-videogular/buffering";
 import {VgOverlayPlayModule} from "@videogular/ngx-videogular/overlay-play";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { VideoDetailComponent } from './video-detail/video-detail.component';
+import { HomeComponent } from './home/home.component';
+import { HistoryComponent } from './history/history.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { LikedVideosComponent } from './liked-videos/liked-videos.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -33,7 +41,13 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     UploadVideoComponent,
     HeaderComponent,
     SaveVideoDetailsComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    VideoDetailComponent,
+    HomeComponent,
+    HistoryComponent,
+    SubscriptionsComponent,
+    LikedVideosComponent,
+    SidebarComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -56,7 +70,9 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
