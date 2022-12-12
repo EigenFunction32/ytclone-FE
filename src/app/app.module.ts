@@ -33,6 +33,12 @@ import { LikedVideosComponent } from './liked-videos/liked-videos.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 
 @NgModule({
@@ -48,6 +54,10 @@ import {MatListModule} from "@angular/material/list";
     SubscriptionsComponent,
     LikedVideosComponent,
     SidebarComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    BoardAdminComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -74,7 +84,7 @@ import {MatListModule} from "@angular/material/list";
     MatSidenavModule,
     MatListModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
