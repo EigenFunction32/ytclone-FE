@@ -1,3 +1,4 @@
+// Questo componente si occupa del bind dei dati (username, email, password)
 // dal template al metodo AuthService.register() che restituisce un oggetto Observable
 
 import { Component, OnInit } from '@angular/core';

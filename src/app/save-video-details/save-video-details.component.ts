@@ -2,10 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {VideoService} from "../video.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {VideoDto} from "../video-dto";
+import {TokenStorageService} from "../_services/token-storage.service";
 
 @Component({
   selector: 'app-save-video-details',
@@ -28,7 +29,9 @@ export class SaveVideoDetailsComponent implements OnInit {
   videoUrl!: string;
   thumbnailUrl!: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private videoService: VideoService, private matSnackBar: MatSnackBar) {
+  isLoggedIn = false;
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private videoService: VideoService, private matSnackBar: MatSnackBar, private tokenStorageService: TokenStorageService) {
     this.videoId = this.activatedRoute.snapshot.params['videoId'];
     this.videoService.getVideo(this.videoId).subscribe(data => {
       this.videoUrl = data.videoUrl;
@@ -41,6 +44,13 @@ export class SaveVideoDetailsComponent implements OnInit {
     })
   }
 
+  ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (!this.isLoggedIn) {
+      this.router.navigateByUrl('login');
+    }
+  }
+
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
@@ -51,9 +61,6 @@ export class SaveVideoDetailsComponent implements OnInit {
 
     // Clear the input value
     event.chipInput!.clear();
-  }
-
-  ngOnInit(): void {
   }
 
   remove(value: string): void {

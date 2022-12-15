@@ -1,20 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import {VideoService} from "../video.service";
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../_services/token-storage.service";
 
 @Component({
   selector: 'app-upload-video',
   templateUrl: './upload-video.component.html',
   styleUrls: ['./upload-video.component.css']
 })
-export class UploadVideoComponent {
+export class UploadVideoComponent implements OnInit{
 
   public files: NgxFileDropEntry[] = [];
   fileUploaded: boolean = false;
   fileEntry: FileSystemFileEntry | undefined;
 
-  constructor(private videoService: VideoService, private router: Router) {
+  isLoggedIn = false;
+
+  constructor(private videoService: VideoService, private router: Router, private tokenStorageService: TokenStorageService) {
+  }
+
+  ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (!this.isLoggedIn) {
+      this.router.navigateByUrl('login');
+    }
   }
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
