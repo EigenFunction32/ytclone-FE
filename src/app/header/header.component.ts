@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TokenStorageService} from "../_services/token-storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isAuthenticated = false;
 
-  ngOnInit(): void {
+  constructor(private tokenStorageService: TokenStorageService, private router: Router) {
   }
 
+  ngOnInit(): void {
+    this.isAuthenticated = !!this.tokenStorageService.getToken();
+  }
+
+  login() {
+    this.router.navigateByUrl('login');
+  }
+
+  logoff() {
+    this.tokenStorageService.signOut();
+  }
 }
+
