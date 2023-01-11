@@ -39,6 +39,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { FeaturedComponent } from './featured/featured.component';
+import { VideoCardComponent } from './video-card/video-card.component';
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -58,6 +61,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     RegisterComponent,
     ProfileComponent,
     BoardAdminComponent,
+    FeaturedComponent,
+    VideoCardComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -82,7 +87,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     VgBufferingModule,
     MatSnackBarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

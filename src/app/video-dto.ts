@@ -1,4 +1,4 @@
-export interface VideoDto{
+export interface VideoDto {
   id: string;
   title: string;
   description: string;
@@ -6,4 +6,7 @@ export interface VideoDto{
   videoUrl: string
   videoStatus: string;
   thumbnailUrl: string;
+  likeCount: number;
+  disLikeCount: number;
+  viewCount: number;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {VideoService} from "../video.service";
 
@@ -14,6 +14,10 @@ export class VideoDetailComponent implements OnInit {
   videoTitle!: string;
   videoDescription!: string;
   tags: Array<string> = [];
+  videoAvailable: boolean = false;
+  likeCount: number = 0;
+  disLikeCount: number = 0;
+  viewCount: number = 0;
 
   constructor(private activatedRoute: ActivatedRoute, private videoService: VideoService) {
     this.videoId = this.activatedRoute.snapshot.params['videoId'];
@@ -22,6 +26,10 @@ export class VideoDetailComponent implements OnInit {
       this.videoTitle = data.title;
       this.videoDescription = data.description;
       this.tags = data.tags;
+      this.videoAvailable = true;
+      this.likeCount = data.likeCount;
+      this.disLikeCount = data.disLikeCount;
+      this.viewCount = data.viewCount;
     })
 
   }

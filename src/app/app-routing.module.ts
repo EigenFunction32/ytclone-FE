@@ -8,9 +8,20 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {BoardAdminComponent} from "./board-admin/board-admin.component";
+import {SubscriptionsComponent} from "./subscriptions/subscriptions.component";
+import {HistoryComponent} from "./history/history.component";
+import {LikedVideosComponent} from "./liked-videos/liked-videos.component";
+import {FeaturedComponent} from "./featured/featured.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {
+    path: '', component: HomeComponent, children: [
+      {path: 'subscriptions', component: SubscriptionsComponent},
+      {path: 'history', component: HistoryComponent},
+      {path: 'liked-videos', component: LikedVideosComponent},
+      {path: 'featured', component: FeaturedComponent}
+    ]
+  },
   {path: 'upload-video', component: UploadVideoComponent},
   {path: 'save-video-details/:videoId', component: SaveVideoDetailsComponent},
   {path: 'video-details/:videoId', component: VideoDetailComponent},
