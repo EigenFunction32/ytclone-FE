@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # YtcloneFrontend Update
 
 13/01/2023
-Aggiornamento Angular CLI, Node, npm e package utilizzati nel progetto
+Aggiornamento Angular CLI, Node, npm e package utilizzati nel progetto:
 
 Angular CLI: 15.0.3
 Node: 18.12.1
