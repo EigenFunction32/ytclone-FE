@@ -6,13 +6,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 13/01/2023
 Aggiornamento Angular CLI, Node, npm e package utilizzati nel progetto
-----------------------------------------------------------------------
+
 Angular CLI: 15.0.3
 Node: 18.12.1
 Package Manager: npm 9.1.2
 
 Package                         Version
------------------------------------------------
+
 @angular-devkit/architect       0.1500.3
 @angular-devkit/build-angular   15.0.3
 @angular-devkit/core            15.0.3
