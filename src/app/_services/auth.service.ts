@@ -36,4 +36,8 @@ export class AuthService {
       refreshToken: token
     }, httpOptions);
   }
+
+  clearToken(token: string): Observable<any> {
+    return this.http.post( AUTH_API + 'signout', null )
+  }
 }

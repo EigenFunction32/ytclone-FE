@@ -42,6 +42,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { FeaturedComponent } from './featured/featured.component';
 import { VideoCardComponent } from './video-card/video-card.component';
 import {MatCardModule} from "@angular/material/card";
+import { CommentComponent } from './comment/comment.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -63,33 +65,35 @@ import {MatCardModule} from "@angular/material/card";
     BoardAdminComponent,
     FeaturedComponent,
     VideoCardComponent,
+    CommentComponent,
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    NgxFileDropModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    FlexLayoutModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatChipsModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule,
-    MatSnackBarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatCardModule
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        NgxFileDropModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatIconModule,
+        FlexLayoutModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatChipsModule,
+        VgCoreModule,
+        VgControlsModule,
+        VgOverlayPlayModule,
+        VgBufferingModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatCardModule,
+        MatMenuModule
+    ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
