@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>YouTubeClone</span>
+    <span routerLink="/featured">YouTubeClone</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="upload-video">
       <mat-icon>video_call</mat-icon>
     </button>
     <button *ngIf="isAuthenticated else noAuth"
@@ -12,11 +12,11 @@
       <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item></button>
+      <button mat-menu-item routerLink="profile">Profilo</button>
       <button mat-menu-item (click)="logOut()">Logout</button>
     </mat-menu>
     <ng-template #noAuth>
-      <button mat-raised-button (click)="login()">Login</button>
+      <button mat-raised-button routerLink="login">Login</button>
     </ng-template>
   </mat-toolbar-row>
 </mat-toolbar>

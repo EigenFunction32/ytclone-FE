@@ -19,12 +19,9 @@ export class HeaderComponent implements OnInit {
     this.isAuthenticated = !!this.tokenStorageService.getToken();
   }
 
-  login() {
-    this.router.navigateByUrl('login');
-  }
-
   logOut() {
     this.tokenStorageService.signOut();
   }
+
 }
 
