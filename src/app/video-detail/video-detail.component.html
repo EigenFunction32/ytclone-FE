@@ -3,6 +3,7 @@
     <div fxLayout="column" fxLayoutGap="8px">
       <app-video-player *ngIf="videoAvailable" [videoUrl]="videoUrl"></app-video-player>
       <div class="mat-title">{{videoTitle}}</div>
+      <div>{{videoDescription}}</div>
       <div fxLayout="row">
         <div fxFlex="50%">
           <span class="view-count">{{viewCount}} visualizzazioni</span>
@@ -24,7 +25,7 @@
       </div>
       <mat-divider></mat-divider>
       <mat-card-header>
-        <mat-card-title>Utente/Canale che ha caricato il video</mat-card-title>
+        <mat-card-title>{{uploadedBy}}</mat-card-title>
         <mat-card-subtitle class="subtitles">N° Subscribers</mat-card-subtitle>
         <button *ngIf="showSubscribeButton" class="subscribe-button" mat-raised-button color="warn"
                 (click)="subscribeToUser()">SUBSCRIBE
@@ -35,8 +36,7 @@
           UNSUBSCRIBE
         </button>
       </mat-card-header>
-      <div>{{videoDescription}}</div>
-      <mat-divider></mat-divider>
+      <mat-divider>ggggggg</mat-divider>
       <mat-chip-list>
         <mat-chip>Spring Boot</mat-chip>
         <mat-chip>Angular</mat-chip>

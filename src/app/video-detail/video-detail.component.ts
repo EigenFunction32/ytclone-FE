@@ -14,6 +14,7 @@ export class VideoDetailComponent implements OnInit {
   videoUrl!: string;
   videoTitle!: string;
   videoDescription!: string;
+  uploadedBy!: string;
   tags: Array<string> = [];
   videoAvailable: boolean = false;
   likeCount: number = 0;
@@ -28,6 +29,7 @@ export class VideoDetailComponent implements OnInit {
       this.videoUrl = data.videoUrl;
       this.videoTitle = data.title;
       this.videoDescription = data.description;
+      this.uploadedBy = data.uploadedBy;
       this.tags = data.tags;
       this.videoAvailable = true;
       this.likeCount = data.likeCount;

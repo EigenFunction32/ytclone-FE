@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   isAuthenticated = false;
 
-  constructor(private tokenStorageService: TokenStorageService, private authService: AuthService, private router: Router) {
+  constructor(private tokenStorageService: TokenStorageService, private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -20,7 +20,11 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut() {
-    this.tokenStorageService.signOut();
+    this.authService.clearToken().subscribe(data => {
+      this.tokenStorageService.signOut();
+      location.reload();
+
+    });
   }
 
 }

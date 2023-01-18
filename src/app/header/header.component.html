@@ -13,7 +13,7 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="profile">Profilo</button>
-      <button mat-menu-item (click)="logOut()">Logout</button>
+      <button mat-menu-item (click)="logOut()" routerLink="/featured">Logout</button>
     </mat-menu>
     <ng-template #noAuth>
       <button mat-raised-button routerLink="login">Login</button>

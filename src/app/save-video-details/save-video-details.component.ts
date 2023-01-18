@@ -28,7 +28,7 @@ export class SaveVideoDetailsComponent implements OnInit {
   fileSelected = false;
   videoUrl!: string;
   thumbnailUrl!: string;
-
+  uploadedBy!: string;
   isLoggedIn = false;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private videoService: VideoService, private matSnackBar: MatSnackBar, private tokenStorageService: TokenStorageService) {
@@ -80,7 +80,6 @@ export class SaveVideoDetailsComponent implements OnInit {
 
   onUpload() {
     this.videoService.uploadThumbnail(this.selectedFile, this.videoId).subscribe(data => {
-      console.log(data);
       this.matSnackBar.open("Immagina caricata correttamente", "OK");
 
     })
@@ -92,6 +91,7 @@ export class SaveVideoDetailsComponent implements OnInit {
       "id": this.videoId,
       "title": this.saveVideoDetailsForm.get('title')?.value,
       "description": this.saveVideoDetailsForm.get('description')?.value,
+      "uploadedBy": this.uploadedBy,
       "tags": this.tags,
       "videoStatus": this.saveVideoDetailsForm.get('videoStatus')?.value,
       "videoUrl": this.videoUrl,
@@ -101,7 +101,8 @@ export class SaveVideoDetailsComponent implements OnInit {
       "viewCount": 0,
     }
     this.videoService.saveVideo(videoMetaData).subscribe(data => {
-      this.matSnackBar.open("Informazioni video salvate correttamente", "Ok")
+      this.router.navigateByUrl('/featured');
+      this.matSnackBar.open("Informazioni video salvate correttamente", "Ok");
     })
   }
 
