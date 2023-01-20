@@ -18,7 +18,6 @@ export class CommentComponent implements OnInit {
   commentsDto: CommentDto[] = [];
 
   constructor(private userService: UserService, private commentService: CommentsService, private matSnackBar: MatSnackBar) {
-    console.log(this.videoId);
     this.commentsForm = new FormGroup({
       comment: new FormControl('comment'),
     });

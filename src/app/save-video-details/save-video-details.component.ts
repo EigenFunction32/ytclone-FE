@@ -29,6 +29,7 @@ export class SaveVideoDetailsComponent implements OnInit {
   videoUrl!: string;
   thumbnailUrl!: string;
   uploadedBy!: string;
+  uploadedById!: string;
   isLoggedIn = false;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private videoService: VideoService, private matSnackBar: MatSnackBar, private tokenStorageService: TokenStorageService) {
@@ -92,6 +93,7 @@ export class SaveVideoDetailsComponent implements OnInit {
       "title": this.saveVideoDetailsForm.get('title')?.value,
       "description": this.saveVideoDetailsForm.get('description')?.value,
       "uploadedBy": this.uploadedBy,
+      "uploadedById": this.uploadedById,
       "tags": this.tags,
       "videoStatus": this.saveVideoDetailsForm.get('videoStatus')?.value,
       "videoUrl": this.videoUrl,

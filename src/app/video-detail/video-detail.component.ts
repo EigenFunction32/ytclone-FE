@@ -15,6 +15,7 @@ export class VideoDetailComponent implements OnInit {
   videoTitle!: string;
   videoDescription!: string;
   uploadedBy!: string;
+  uploadedById!: string;
   tags: Array<string> = [];
   videoAvailable: boolean = false;
   likeCount: number = 0;
@@ -30,6 +31,7 @@ export class VideoDetailComponent implements OnInit {
       this.videoTitle = data.title;
       this.videoDescription = data.description;
       this.uploadedBy = data.uploadedBy;
+      this.uploadedById = data.uploadedById;
       this.tags = data.tags;
       this.videoAvailable = true;
       this.likeCount = data.likeCount;
@@ -58,14 +60,14 @@ export class VideoDetailComponent implements OnInit {
   }
 
   subscribeToUser() {
-    this.userService.getUserInfo().subscribe(userId => {
-      this.userService.subscribeToUser(userId).subscribe(data => {
-        if(data === true) {
-          this.showUnSubscribeButton = true;
-          this.showSubscribeButton = false;
-        }
-      });
-    })
+      this.videoService.getVideo(this.videoId)
+        this.userService.subscribeToUser(this.uploadedById.toString()).subscribe(data => {
+          console.log(data);
+          if(data === true) {
+            this.showUnSubscribeButton = true;
+            this.showSubscribeButton = false;
+          }
+        });
   }
 
   unSubscribeToUser() {
