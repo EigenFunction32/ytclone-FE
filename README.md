@@ -1,3 +1,5 @@
+![immagine](https://user-images.githubusercontent.com/94211283/213875076-057f81aa-2248-4022-b67f-e8d496086494.png)
+
 # YtcloneFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
