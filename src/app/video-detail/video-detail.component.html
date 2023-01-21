@@ -32,8 +32,7 @@
         </button>
         <button *ngIf="showUnSubscribeButton" class="subscribe-button-clicked"
                 mat-raised-button color="accent"
-                (click)="unSubscribeToUser()">
-          UNSUBSCRIBE
+                (click)="unSubscribeToUser()">UNSUBSCRIBE
         </button>
       </mat-card-header>
       <mat-divider>ggggggg</mat-divider>
@@ -42,7 +41,7 @@
         <mat-chip>Angular</mat-chip>
       </mat-chip-list>
       <mat-divider></mat-divider>
-            <app-comment [videoId] = "videoId"></app-comment>
+      <app-comment [videoId]="videoId"></app-comment>
     </div>
   </div>
   <div fxFlex="5%"></div>
